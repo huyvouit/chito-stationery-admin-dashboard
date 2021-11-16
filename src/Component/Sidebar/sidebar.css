@@ -1,0 +1,117 @@
+.sidebar {
+  position: relative;
+  background-color: var(--text-title);
+  width: 280px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr 80px;
+}
+.sidebar-logo {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 0 0 0;
+}
+.sidebar-logo p {
+  text-align: center;
+  font-size: 35px;
+  color: var(--primary-background);
+  cursor: pointer;
+}
+
+.sidebar-footer {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 30px;
+  background-color: var(--primary-background);
+  border-radius: 20px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.sidebar-footer p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -50%);
+  color: var(--text-title);
+}
+
+.sidebar-body {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0 0 5px;
+  border-left: 40px solid var(--text-title);
+}
+
+.sidebar-body .list-sidebar {
+  list-style: none;
+  width: 100%;
+  position: relative;
+}
+.list-sidebar-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+  color: var(--primary-background);
+  padding-left: 30px;
+}
+.sidebar-icon {
+  position: relative;
+  /* line-height: 60px; */
+}
+.sidebar-icon i {
+  position: relative;
+  font-size: 1.5em;
+  z-index: 1;
+}
+
+.sidebar-title {
+  position: relative;
+  /* display: block; */
+  min-width: 60px;
+  line-height: 60px;
+  height: 60px;
+  white-space: nowrap;
+  padding-left: 10px;
+}
+
+.list-sidebar.active {
+  background-color: var(--primary-background);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  /* margin-left: 30px; */
+}
+.list-sidebar.active .sidebar-title,
+.list-sidebar .sidebar-icon.active {
+  color: var(--text-title);
+}
+
+.list-sidebar.active .list-sidebar-link::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100rem;
+  background-color: var(--text-title);
+  box-shadow: 15px 15px 0 var(--primary-background);
+}
+.list-sidebar.active .list-sidebar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100rem;
+  background-color: var(--text-title);
+  box-shadow: 15px -15px 0 var(--primary-background);
+}

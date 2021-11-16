@@ -1,0 +1,32 @@
+[
+  {
+    "display_name": "Dashboard",
+    "route": "/",
+    "icon": "bx bx-home-heart bx-sm"
+  },
+  {
+    "display_name": "Customers",
+    "route": "/customers",
+    "icon": "bx bx-user bx-sm"
+  },
+  {
+    "display_name": "Products",
+    "route": "/products",
+    "icon": "bx bx-collection bx-sm"
+  },
+  {
+    "display_name": "Orders",
+    "route": "/orders",
+    "icon": "bx bx-shopping-bag bx-sm"
+  },
+  {
+    "display_name": "Messages",
+    "route": "/messages",
+    "icon": "bx bx-message-square-dots bx-sm"
+  },
+  {
+    "display_name": "Revenue",
+    "route": "/revenue",
+    "icon": "bx bx-trending-up bx-sm"
+  }
+]
