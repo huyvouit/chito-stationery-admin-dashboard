@@ -1,6 +1,5 @@
 .primary-body {
   min-height: 100vh;
-  background-color: var(--primary-background);
   display: grid;
   grid-template-columns: 280px 1fr;
   grid-template-rows: 1fr;
