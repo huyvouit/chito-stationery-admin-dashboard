@@ -7,7 +7,7 @@ import { ProductScreen } from "../Screen/Products/product_screen";
 import { OrdersScreen } from "../Screen/Orders/order_screen";
 import { ContactScreen } from "../Screen/Contacts/contact_screen";
 import { RevenueScreen } from "../Screen/Revenue/revenue_screen";
-
+import { ErrorScreen } from "./Error/error_screen";
 const RoutesSideBar = () => {
   return (
     <Switch>
@@ -89,6 +89,7 @@ const RoutesSideBar = () => {
           )
         }
       />
+      <Route path="/*" exact component={ErrorScreen} />
       {/* <Route path="/" exact component={DashboardScreen} />
       <Route path="/orders" exact component={OrdersScreen} />
       <Route path="/products" exact component={ProductScreen} />
