@@ -1,0 +1,27 @@
+.login-container {
+    padding: 15px;
+}
+
+.login-title {
+    color: var(--text-title);
+    font-size: 2.2rem;
+    margin-top: 12.5%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.login-box {
+    border-radius: 36px;
+    background-color: white;
+    max-width: 400px;
+    margin: 48px auto;
+    padding: 27px 42px;
+}
+
+.login-input {
+    width: 100%;
+}

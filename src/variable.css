@@ -1,0 +1,60 @@
+:root {
+    --primary-text: #524d4b;
+    --primary-background: #f5f2f0;
+    --text-title: #966a57;
+    --text-subTitle: #ada293;
+    --primary-footer: #e5e1df;
+    --blend-mode: #707070;
+    --blue-light: #4c8dfb;
+    --underline: #B7B6B6;
+}
+
+.title {
+    font-size: 24px;
+    color: var(--text-title);
+    font-weight: bold;
+}
+
+.btn-common {
+    padding: 12px 32px;
+    border-radius: 36px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn {
+    color: white;
+    background-color: var(--text-title);
+}
+
+.secondary-btn {
+    color: var(--text-title);
+    background-color: var(--primary-background);
+}
+
+.input-common {
+    height: 27px;
+    border: none;
+    border-bottom: solid 1px var(--text-title);
+    font-family: "Bellota Text", cursive;
+    font-size: 14px;
+    padding: 0px 9px;
+}
+
+.input-common:focus-visible {
+    border: 1px solid var(--text-title);
+    border-radius: 24px;
+    outline: none;
+}
+
+.mb-9 {
+    margin-bottom: 9px;
+}
+
+.mb-18 {
+    margin-bottom: 18px;
+}
+
+.mb-27 {
+    margin-bottom: 27px;
+}

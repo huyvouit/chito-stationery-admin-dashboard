@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { DashboardScreen } from "../Screen/Dashboard/dashboard_screen";
 import { CustomerScreen } from "../Screen/Customers/customers_screen";
 import { ProductScreen } from "../Screen/Products/product_screen";
@@ -11,12 +11,90 @@ import { RevenueScreen } from "../Screen/Revenue/revenue_screen";
 const RoutesSideBar = () => {
   return (
     <Switch>
-      <Route path="/" exact component={DashboardScreen} />
+      <Route
+        exact
+        path="/"
+        render={(props) =>
+          false ? (
+            <>
+              <DashboardScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/orders"
+        render={(props) =>
+          true ? (
+            <>
+              <OrdersScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/products"
+        render={(props) =>
+          true ? (
+            <>
+              <ProductScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/customers"
+        render={(props) =>
+          true ? (
+            <>
+              <CustomerScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/messages"
+        render={(props) =>
+          true ? (
+            <>
+              <ContactScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/revenue"
+        render={(props) =>
+          true ? (
+            <>
+              <RevenueScreen {...props} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+      {/* <Route path="/" exact component={DashboardScreen} />
       <Route path="/orders" exact component={OrdersScreen} />
       <Route path="/products" exact component={ProductScreen} />
       <Route path="/customers" exact component={CustomerScreen} />
       <Route path="/contacts" exact component={ContactScreen} />
-      <Route path="/revenue" exact component={RevenueScreen} />
+      <Route path="/revenue" exact component={RevenueScreen} /> */}
     </Switch>
   );
 };

@@ -1,30 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //css
 import "./App.css";
 //component
-import Sidebar from "./Component/sidebar";
-import RoutesSideBar from "./Component/route";
-import LoginScreen from "./Component/login_screen";
+import Sidebar from "./Component/Sidebar/sidebar";
+import RouteSidebar from "./Component/route";
+import LoginScreen from "./Component/Login/login_screen";
 //screen
 
-import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
-    <BrowserRouter>
-      <Route
-        render={(props) => (
-          <div className="primary-body">
-            <Sidebar {...props} />
-            <div className="layout__content">
-              <div className="layout__content-main">
-                <RoutesSideBar />
-                <Route path="/login" exact component={LoginScreen} />
+    <Router>
+      <Switch>
+        <Route path="/login" exact component={LoginScreen} />
+        <Route
+          render={(props) => (
+            <div className="primary-body">
+              <Sidebar {...props} />
+              <div className="layout-content">
+                <Switch>
+                  <RouteSidebar />
+                </Switch>
               </div>
             </div>
-          </div>
-        )}
-      />
-    </BrowserRouter>
+          )}
+        />
+      </Switch>
+    </Router>
   );
 }
 
