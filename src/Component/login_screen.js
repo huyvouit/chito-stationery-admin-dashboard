@@ -8,16 +8,16 @@ export default function LoginScreen() {
         <div className="login-container">
           <div className="login-title">Welcome to Chito Stationery Admin Dashboard.</div>
           <div className="login-box">
-            <div className="title">SIGN IN</div>
-            <div className="login-subtitle">Email</div>
+            <div className="title text-align-center mb-27">SIGN IN</div>
+            <div className="login-subtitle mb-9">Email</div>
             <div>
-              <input type="email" />
+              <input className="input-common login-input mb-18" type="email" />
             </div>
-            <div className="login-subtitle">Password</div>
+            <div className="login-subtitle mb-9">Password</div>
             <div>
-              <input type="password" />
+              <input className="input-common login-input mb-27" type="password" />
             </div>
-            <div>
+            <div className="text-align-center">
               <button className="btn-common primary-btn">SIGN IN</button>
             </div>
           </div>
