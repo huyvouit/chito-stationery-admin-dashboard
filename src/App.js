@@ -6,27 +6,30 @@ import "./App.css";
 import Sidebar from "./Component/Sidebar/sidebar";
 import RouteSidebar from "./Component/route";
 import LoginScreen from "./Component/Login/login_screen";
-//screen
+import AuthContextProvider from "./Context/auth_context";
+//context
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" exact component={LoginScreen} />
-        <Route
-          render={(props) => (
-            <div className="primary-body">
-              <Sidebar {...props} />
-              <div className="layout-content">
-                <Switch>
-                  <RouteSidebar />
-                </Switch>
+    <AuthContextProvider>
+      <Router>
+        <Switch>
+          <Route path="/login" exact component={LoginScreen} />
+          <Route
+            render={(props) => (
+              <div className="primary-body">
+                <Sidebar {...props} />
+                <div className="layout-content">
+                  <Switch>
+                    <RouteSidebar />
+                  </Switch>
+                </div>
               </div>
-            </div>
-          )}
-        />
-      </Switch>
-    </Router>
+            )}
+          />
+        </Switch>
+      </Router>
+    </AuthContextProvider>
   );
 }
 

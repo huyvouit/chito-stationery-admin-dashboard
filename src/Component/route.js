@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import { DashboardScreen } from "../Screen/Dashboard/dashboard_screen";
@@ -8,7 +8,10 @@ import { OrdersScreen } from "../Screen/Orders/order_screen";
 import { ContactScreen } from "../Screen/Contacts/contact_screen";
 import { RevenueScreen } from "../Screen/Revenue/revenue_screen";
 import { ErrorScreen } from "./Error/error_screen";
+import { AuthContext } from "../Context/auth_context";
+
 const RoutesSideBar = () => {
+  const { authLoading, isAuthenticated } = useContext(AuthContext);
   return (
     <Switch>
       <Route
