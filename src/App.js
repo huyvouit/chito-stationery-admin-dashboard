@@ -8,11 +8,11 @@ import RouteSidebar from "./Component/route";
 import LoginScreen from "./Component/Login/login_screen";
 import AuthContextProvider from "./Context/auth_context";
 //context
-
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
-    <AuthContextProvider>
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <Switch>
           <Route path="/login" exact component={LoginScreen} />
           <Route
@@ -28,8 +28,9 @@ function App() {
             )}
           />
         </Switch>
-      </Router>
-    </AuthContextProvider>
+        <ToastContainer />
+      </AuthContextProvider>
+    </Router>
   );
 }
 

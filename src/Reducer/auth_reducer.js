@@ -6,6 +6,7 @@ export const authReducer = (state, action) => {
 
   switch (type) {
     case "SET_AUTH":
+      // console.log("in reducer:", authLoading, isAuthenticated);
       return {
         ...state,
         authLoading,

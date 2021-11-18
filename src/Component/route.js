@@ -10,8 +10,13 @@ import { RevenueScreen } from "../Screen/Revenue/revenue_screen";
 import { ErrorScreen } from "./Error/error_screen";
 import { AuthContext } from "../Context/auth_context";
 
-const RoutesSideBar = () => {
-  const { authLoading, isAuthenticated } = useContext(AuthContext);
+const RoutesSideBar = (props) => {
+  const { authLoading, isAuthenticated } = props;
+  console.log(authLoading, isAuthenticated);
+
+  // if (authLoading)
+  //   return <div class="spinner-border text-dark" role="status"></div>;
+
   return (
     <Switch>
       <Route

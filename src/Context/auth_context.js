@@ -16,7 +16,8 @@ const AuthContextProvider = ({ children }) => {
     console.log("checking user");
     try {
       const response = await authApi.verifyUser();
-      if (response.data.success) {
+      console.log(response.data);
+      if (!response.data.success) {
         console.log("Verify token");
         dispatch({
           type: "SET_AUTH",
@@ -25,7 +26,7 @@ const AuthContextProvider = ({ children }) => {
             isAuthenticated: true,
           },
         });
-        // console.log(response.data.user);
+        // console.log("load:", authState);
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
@@ -35,6 +36,7 @@ const AuthContextProvider = ({ children }) => {
         type: "SET_AUTH",
         payload: { authLoading: false, isAuthenticated: false },
       });
+      // console.log("load:", authState);
     }
   };
 
@@ -44,21 +46,19 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (userForm) => {
     try {
       const response = await authApi.postSignIn(userForm);
-      // console.log(response.data.accessToken);
+      console.log(response.data);
       if (response.data.success)
         localStorage.setItem(TOKEN_NAME, response.data.accessToken);
       // localStorage.setItem(REFTOKEN, response.data.refreshToken);
-      // console.log(`data: ${response.config}`);
+
       await loadUser();
 
       return response.data;
     } catch (error) {
       if (error.response.data) {
-        // console.log(error.response.data);
+        console.log(error.response.data);
         return error.response.data;
       }
-
-      // else return { success: false, message: error.message };
     }
   };
 
@@ -84,6 +84,7 @@ const AuthContextProvider = ({ children }) => {
       type: "SET_AUTH",
       payload: { authLoading: false, isAuthenticated: false },
     });
+    // console.log("load:", authState);
   };
 
   // Context data
