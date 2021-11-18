@@ -1,0 +1,11 @@
+.title-content {
+    font-weight: bold;
+}
+.my-custom-scrollbar {
+    height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
