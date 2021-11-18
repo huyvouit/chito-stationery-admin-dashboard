@@ -15,7 +15,7 @@ const RoutesSideBar = () => {
         exact
         path="/"
         render={(props) =>
-          false ? (
+          true ? (
             <>
               <DashboardScreen {...props} />
             </>
