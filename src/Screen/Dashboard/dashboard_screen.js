@@ -65,7 +65,7 @@ export const DashboardScreen = () => {
               </Link>
             </div>
             <div className="box shadow-sm">
-              <table class="table table-borderless table-custom">
+              <table className="table table-borderless table-custom">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>

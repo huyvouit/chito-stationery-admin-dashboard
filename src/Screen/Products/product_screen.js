@@ -10,7 +10,7 @@ export const ProductScreen = () => {
             <div className="title mb-36 mt-30">Products</div>
           </div>
           <div className="box shadow-sm">
-            <table class="table table-borderless table-hover table-custom">
+            <table className="table table-borderless table-hover table-custom">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -40,9 +40,9 @@ export const ProductScreen = () => {
           </div>
           <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mt-30 page-nav-custom">
-              <li class="page-item"><a class="page-nav-number" href="#">1</a></li>
-              <li class="page-item"><a class="page-nav-number" href="#">2</a></li>
-              <li class="page-item"><a class="page-nav-number" href="#">3</a></li>
+              <li className="page-item"><a className="page-nav-number" href="#">1</a></li>
+              <li className="page-item"><a className="page-nav-number" href="#">2</a></li>
+              <li className="page-item"><a className="page-nav-number" href="#">3</a></li>
             </ul>
           </nav>
         </div>

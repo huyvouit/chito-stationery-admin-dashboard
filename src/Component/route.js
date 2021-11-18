@@ -5,7 +5,7 @@ import { DashboardScreen } from "../Screen/Dashboard/dashboard_screen";
 import { CustomerScreen } from "../Screen/Customers/customers_screen";
 import { ProductScreen } from "../Screen/Products/product_screen";
 import { OrdersScreen } from "../Screen/Orders/order_screen";
-import { ContactScreen } from "../Screen/Contacts/contact_screen";
+import { MeggageScreen } from "../Screen/Message/message_screen";
 import { RevenueScreen } from "../Screen/Revenue/revenue_screen";
 import { ErrorScreen } from "./Error/error_screen";
 import { AuthContext } from "../Context/auth_context";
@@ -72,7 +72,7 @@ const RoutesSideBar = () => {
         render={(props) =>
           true ? (
             <>
-              <ContactScreen {...props} />
+              <MeggageScreen {...props} />
             </>
           ) : (
             <Redirect to="/login" />

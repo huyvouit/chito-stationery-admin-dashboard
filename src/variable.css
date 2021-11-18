@@ -67,6 +67,12 @@
     color: var(--primary-text);
 }
 
+.pagenation-Custom {
+    top: 91%;
+    width: 80%;
+    position: absolute;
+}
+
 .mt-30 {
     margin-top: 30px;
 }
@@ -94,3 +100,4 @@
 .mb-36 {
     margin-bottom: 36px;
 }
+
