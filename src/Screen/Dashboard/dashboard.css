@@ -40,6 +40,10 @@
     border-radius: 16px;
 }
 
+.table-custom thead {
+    border-bottom: solid 1px var(--underline);
+}
+
 .table-custom tr {
     text-align: center;
     vertical-align: middle;

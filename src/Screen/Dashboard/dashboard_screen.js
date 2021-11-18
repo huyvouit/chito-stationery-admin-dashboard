@@ -77,7 +77,7 @@ export const DashboardScreen = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row col-12">#0001</th>
+                    <td>#0001</td>
                     <td>
                       <img className="admin-img" src={ava} alt="arrow-right" />
                     </td>
@@ -88,7 +88,7 @@ export const DashboardScreen = () => {
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row col-12">#0001</th>
+                    <td>#0001</td>
                     <td>
                       <img className="admin-img" src={ava} alt="arrow-right" />
                     </td>
@@ -99,7 +99,7 @@ export const DashboardScreen = () => {
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row col-12">#0001</th>
+                    <td>#0001</td>
                     <td>
                       <img className="admin-img" src={ava} alt="arrow-right" />
                     </td>
@@ -110,7 +110,7 @@ export const DashboardScreen = () => {
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row col-12">#0001</th>
+                    <td>#0001</td>
                     <td>
                       <img className="admin-img" src={ava} alt="arrow-right" />
                     </td>
