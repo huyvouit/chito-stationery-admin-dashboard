@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect } from "react";
 import { authReducer } from "../Reducer/auth_reducer";
 import { TOKEN_NAME, REFTOKEN } from "../Utils/consstants";
-import authApi from "../api/auth_api";
+import authApi from "../Api/auth_api";
 
 export const AuthContext = createContext();
 

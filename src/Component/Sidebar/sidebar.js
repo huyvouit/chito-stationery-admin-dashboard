@@ -27,7 +27,7 @@ const Sidebar = (props) => {
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
-        <p>CHITO ADMIN</p>
+        CHITO STATIONERY
       </div>
       <ul className="sidebar-body">
         {sidebar_routes.map((item, index) => (
@@ -46,8 +46,8 @@ const Sidebar = (props) => {
           </li>
         ))}
       </ul>
-      <div className="sidebar-footer">
-        <p>SIGN OUT</p>
+      <div className="text-align-center">
+        <button className="btn-common secondary-btn">SIGN OUT</button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export default function LoginScreen() {
       <div className="login">
         <div className="login-container">
           <div className="login-title">Welcome to Chito Stationery Admin Dashboard.</div>
-          <div className="login-box">
+          <div className="login-box shadow-sm">
             <div className="title text-align-center mb-27">SIGN IN</div>
             <div className="login-subtitle mb-9">Email</div>
             <div>
