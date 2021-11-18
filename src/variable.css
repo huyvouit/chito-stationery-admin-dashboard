@@ -54,10 +54,6 @@
     padding: 32px 32px;
 }
 
-.align-items-center {
-    align-items: center;
-}
-
 .admin-link {
     text-decoration: none;
     color: var(--primary-text);
@@ -65,6 +61,49 @@
 
 .admin-link:hover {
     color: var(--primary-text);
+}
+
+.table-custom thead {
+    border-bottom: solid 1px var(--underline);
+}
+
+.table-custom tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-custom tbody td {
+    padding-top: 24px;
+}
+
+.page-nav-custom li:first-child .page-nav-number{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.page-nav-custom li:last-child .page-nav-number{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.page-nav-number {
+    padding: 0.375rem 0.75rem;
+    position: relative;
+    display: block;
+    color: var(--text-title);
+    text-decoration: none;
+    background-color: #fff;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.page-nav-number:hover {
+    background-color: #b99788;
+    color: white;
+}
+
+.page-nav-number:active {
+    background-color: var(--text-title);
+    color: white;
 }
 
 .mt-30 {
@@ -93,4 +132,8 @@
 
 .mb-36 {
     margin-bottom: 36px;
+}
+
+.mr-9 {
+    margin-right: 15px;
 }
