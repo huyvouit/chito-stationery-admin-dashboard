@@ -10,94 +10,96 @@ export const OrdersScreen = () => {
           <div className="col-12">
             <div className="title mb-36 mt-30">Orders</div>
           </div>
-          <div className=" box shadow-sm">
-            <table className=" table table-borderless table-hover table-custom">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">User</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr
-                  role="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-                <tr>
-                  <td>#0001</td>
-                  <td>31/10/2021</td>
-                  <td>sweetlatte@gmail.com</td>
-                  <td>9</td>
-                  <td>999,999 VND</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="col-12">
+            <div className=" box shadow-sm">
+              <table className=" table table-borderless table-hover table-custom">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                  <tr>
+                    <td>#0001</td>
+                    <td>31/10/2021</td>
+                    <td>sweetlatte@gmail.com</td>
+                    <td>9</td>
+                    <td>999,999 VND</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         {/* <!-- Modal --> */}

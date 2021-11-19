@@ -35,7 +35,6 @@ const AuthContextProvider = ({ children }) => {
         type: "SET_AUTH",
         payload: { isAuthenticated: false },
       });
-      console.log("load:", authState);
     }
   };
 

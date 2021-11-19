@@ -12,7 +12,7 @@ const AuthScreen = ({ authRoute }) => {
   let body;
 
   if (authLoading)
-    body = <div class="spinner-border text-info " role="status"></div>;
+    body = <div className="spinner-border text-info " role="status"></div>;
   else if (isAuthenticated) return <Redirect to="/" />;
   else
     body = (
