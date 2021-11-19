@@ -179,20 +179,18 @@ export const ProductScreen = () => {
 
                   <div className="col-11">
                     <div className="row">
-                      <Link className="admin-link col-11" to="/products">
-                        <div className="dashboard-subtitle mb-9">Products</div>
-                      </Link>
-                      <Link className="admin-link col-1" to="/products">
-                        <div className="d-flex more">
-                          <div className="admin-more">More</div>
-                          <img
-                            className="more-arrow"
-                            src={camera}
-                            alt="arrow-right"
-                          />
-                        </div>
-                      </Link>
-                    </div>
+                      <div className="align-items-baseline">
+                        <img className="admin-img mr-15" src={ava} alt="ava" />
+                        
+                          <button className="btn-common add-img-btn mr-15">
+                            <img className="add-img-btn-icon" src={camera} alt="add-img"/>
+                            Add image
+                          </button>
+                        
+                        
+                      </div>
+                    </div> 
+                    
                   </div>
 
                   <div className="col-1 text-align-right mt-2">

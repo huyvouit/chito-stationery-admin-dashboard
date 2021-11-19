@@ -20,9 +20,14 @@
 }
 
 .add-img-btn {
-    padding: 3px 5px;
+    background-color: white;
+    padding: 9px 9px;
     border-radius: 9px;
     border: none;
     text-transform: uppercase;
     font-size: 12px;
+}
+
+.add-img-btn-icon {
+    margin-right: 9px;
 }
