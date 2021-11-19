@@ -40,6 +40,7 @@
   font-family: "Bellota Text", cursive;
   font-size: 14px;
   padding: 0px 9px;
+  width: 100%;
 }
 
 .input-common:focus-visible {
@@ -107,6 +108,24 @@
   color: white;
 }
 
+.text-align-right {
+  text-align: right;
+}
+
+.modal-custom {
+  border-radius: 21px;
+  padding: 20px;
+}
+
+.modal-footer-custom {
+  border-top: none;
+}
+
+.width-custom {
+  max-width: 430px;
+  margin: auto;
+}
+
 .mt-30 {
   margin-top: 30px;
 }
@@ -135,6 +154,10 @@
   margin-bottom: 36px;
 }
 
-.mr-9 {
+.mr-15 {
   margin-right: 15px;
+}
+
+.pl-15 {
+  padding-left: 15px;
 }
