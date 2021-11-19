@@ -17,6 +17,7 @@ export const CustomerScreen = () => {
                   <th scope="col">Full name</th>
                   <th scope="col">Phone number</th>
                   <th scope="col">Address</th>
+                  <th scope="col">Orders</th>
                 </tr>
               </thead>
               <tbody>
@@ -27,6 +28,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -35,6 +37,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -43,6 +46,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -51,6 +55,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -59,6 +64,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -67,6 +73,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -75,6 +82,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -83,6 +91,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -91,6 +100,7 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
                 <tr>
                   <td>sweetlatte@gmail.com</td>
@@ -99,23 +109,24 @@ export const CustomerScreen = () => {
                   <td className="col-4">
                     I want to buy a cup of sweet latte and some sour...
                   </td>
+                  <td>9</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mt-30 page-nav-custom">
-              <li className="page-item">
+              <li className="page-item shadow-sm">
                 <a className="page-nav-number" href="#">
                   1
                 </a>
               </li>
-              <li className="page-item">
+              <li className="page-item shadow-sm">
                 <a className="page-nav-number" href="#">
                   2
                 </a>
               </li>
-              <li className="page-item">
+              <li className="page-item shadow-sm">
                 <a className="page-nav-number" href="#">
                   3
                 </a>
