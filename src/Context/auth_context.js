@@ -16,27 +16,26 @@ const AuthContextProvider = ({ children }) => {
     console.log("checking user");
     try {
       const response = await authApi.verifyUser();
-      console.log(response.data);
-      if (!response.data.success) {
+      // console.log(response.data);
+      if (response.data.success === false) {
         console.log("Verify token");
         dispatch({
           type: "SET_AUTH",
           payload: {
-            authLoading: false,
             isAuthenticated: true,
           },
         });
-        // console.log("load:", authState);
       }
+      console.log("load:", authState);
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
       // localStorage.removeItem(REFTOKEN);
       console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
-        payload: { authLoading: false, isAuthenticated: false },
+        payload: { isAuthenticated: false },
       });
-      // console.log("load:", authState);
+      console.log("load:", authState);
     }
   };
 
@@ -46,7 +45,7 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (userForm) => {
     try {
       const response = await authApi.postSignIn(userForm);
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.success)
         localStorage.setItem(TOKEN_NAME, response.data.accessToken);
       // localStorage.setItem(REFTOKEN, response.data.refreshToken);
@@ -82,9 +81,8 @@ const AuthContextProvider = ({ children }) => {
     // localStorage.removeItem(REFTOKEN);
     dispatch({
       type: "SET_AUTH",
-      payload: { authLoading: false, isAuthenticated: false },
+      payload: { isAuthenticated: false },
     });
-    // console.log("load:", authState);
   };
 
   // Context data

@@ -24,7 +24,8 @@ const Sidebar = (props) => {
   const activeItem = sidebar_routes.findIndex(
     (item) => item.route === props.location.pathname
   );
-  console.log(activeItem, props.location.pathname);
+
+  const logout = () => logoutUser();
   return (
     <div className="sidebar">
       <div className="sidebar-logo">CHITO STATIONERY</div>
@@ -46,7 +47,7 @@ const Sidebar = (props) => {
         ))}
       </ul>
       <div className="text-align-center">
-        <button className="btn-common secondary-btn" onClick={logoutUser}>
+        <button className="btn-common secondary-btn" onClick={logout}>
           SIGN OUT
         </button>
       </div>

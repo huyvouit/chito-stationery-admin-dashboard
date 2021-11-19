@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/auth_context";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
 import isEmpty from "validator/lib/isEmpty";
 import "./login.css";
 
@@ -26,7 +25,6 @@ export default function LoginScreen() {
     try {
       const loginData = await loginUser(loginForm);
       if (loginData.success) {
-        console.log("sd");
         toast.success(loginData.message, {
           position: "top-right",
           autoClose: 3000,
@@ -35,8 +33,7 @@ export default function LoginScreen() {
           pauseOnHover: true,
           draggable: true,
         });
-        // console.log(authState);
-        handleLoginSucessful();
+        console.log(authState);
       } else {
         toast.error(loginData.error, {
           position: "top-right",
@@ -57,11 +54,6 @@ export default function LoginScreen() {
         draggable: true,
       });
     }
-  };
-
-  let history = useHistory();
-  const handleLoginSucessful = () => {
-    history.push("/");
   };
 
   const validateAll = () => {
