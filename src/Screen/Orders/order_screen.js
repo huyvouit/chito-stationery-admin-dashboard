@@ -131,7 +131,7 @@ export const OrdersScreen = () => {
                     ></button>
                   </div>
                 </div>
-                <div className="col-11">
+                <div className="col-12 table-scoroll">
                   <table className=" table table-borderless table-hover table-custom ">
                     <thead>
                       <tr>

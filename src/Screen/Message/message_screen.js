@@ -1,4 +1,5 @@
 import React from "react";
+import "./Message.css"
 
 export const MessageScreen = () => {
   return (
@@ -23,8 +24,14 @@ export const MessageScreen = () => {
                   <td>06/11/2021</td>
                   <td>littlestarinthesky@gmail.com</td>
                   <td>Little Star</td>
-                  <td className="col-3">Candies are delightful treat desired and
-                    craved by every person around the globe craved by around the globe...</td>
+                  <td className="col-3 text-overfolow">
+                  Like anything, chocolate is best enjoyed in moderation.
+                  If you choose chocolate wisely, it actually has some health benefits,
+                  but eating too much candy has negative effects on your health.
+                  Candies are mostly made from sugar which has to be boiled at a special temperature.
+                  Beside sugar, ingredients like flavorings, nuts, gelatin, egg whites,
+                  milk-based ingredients and butter are used for candy making.
+                  </td>
                 </tr>
                 <tr role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <td>06/11/2021</td>
@@ -64,13 +71,6 @@ export const MessageScreen = () => {
               </tbody>
             </table>
           </div>
-          <nav aria-label="Page navigation" className="pagenation-Custom">
-            <ul className="pagination justify-content-center page-nav-custom">
-              <li className="page-item"><a className="page-nav-number" href="#">1</a></li>
-              <li className="page-item"><a className="page-nav-number" href="#">2</a></li>
-              <li className="page-item"><a className="page-nav-number" href="#">3</a></li>
-            </ul>
-          </nav>
         </div>
       </div>
       {/* <!-- Modal --> */}

@@ -1,0 +1,10 @@
+.text-overfolow {
+    display: -webkit-box;
+    height: 66px;
+    width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
