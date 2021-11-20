@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 // import logo from "../../assets/images/logo.png";
 
 import sidebar_routes from "../../Utils/sidebar_route.json";
+import { AuthContext } from "../../Context/auth_context";
 
 const SidebarItem = (props) => {
   const active = props.active ? "active" : "";
@@ -19,16 +20,15 @@ const SidebarItem = (props) => {
 };
 
 const Sidebar = (props) => {
-  // let location = useLocation();
+  const { logoutUser } = useContext(AuthContext);
   const activeItem = sidebar_routes.findIndex(
     (item) => item.route === props.location.pathname
   );
-  console.log(activeItem, props.location.pathname);
+
+  const logout = () => logoutUser();
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">
-        CHITO STATIONERY
-      </div>
+      <div className="sidebar-logo">CHITO STATIONERY</div>
       <ul className="sidebar-body">
         {sidebar_routes.map((item, index) => (
           <li
@@ -47,7 +47,9 @@ const Sidebar = (props) => {
         ))}
       </ul>
       <div className="text-align-center">
-        <button className="btn-common secondary-btn">SIGN OUT</button>
+        <button className="btn-common secondary-btn" onClick={logout}>
+          SIGN OUT
+        </button>
       </div>
     </div>
   );

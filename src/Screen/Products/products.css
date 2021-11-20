@@ -1,0 +1,33 @@
+.float-btn {
+    border: none;
+    background-color: var(--primary-background);
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+}
+
+.product-add-btn {
+    border: none;
+    background-color: white;
+    border-radius: 24px;
+    color: var(--primary-text);
+    width: 100%;
+    height: 50px;
+}
+
+.product-input-label {
+    font-size: 12px;
+}
+
+.add-img-btn {
+    background-color: white;
+    padding: 9px 9px;
+    border-radius: 9px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.add-img-btn-icon {
+    margin-right: 9px;
+}

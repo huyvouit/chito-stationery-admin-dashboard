@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MeggageScreen = () => {
+export const MessageScreen = () => {
   return (
     <div className="message">
       <div className="container-fluid">

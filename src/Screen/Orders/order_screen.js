@@ -1,6 +1,6 @@
 import React from "react";
 import ava from "../../Assets/Image/ava.jpg";
-import "./Order.css"
+import "./Order.css";
 
 export const OrdersScreen = () => {
   return (
@@ -95,13 +95,6 @@ export const OrdersScreen = () => {
               </tbody>
             </table>
           </div>
-          <nav aria-label="Page navigation" className="pagenation-Custom">
-            <ul className="pagination justify-content-center page-nav-custom">
-              <li className="page-item"><a className="page-nav-number" href="#">1</a></li>
-              <li className="page-item"><a className="page-nav-number" href="#">2</a></li>
-              <li className="page-item"><a className="page-nav-number" href="#">3</a></li>
-            </ul>
-          </nav>
         </div>
         {/* <!-- Modal --> */}
         <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,16 +103,32 @@ export const OrdersScreen = () => {
               <div className="modal-body ">
                 <div className="row mb-14">
                   <div className="col-4">
-                    <p className="modal-title mt-2"><strong className="title-content">ID:</strong> #0001</p>
-                    <p className="modal-title mt-2"><strong className="title-content">Date:</strong> 31/10/2021</p>
+                    <p className="modal-title mt-2">
+                      <strong className="title-content">ID:</strong> #0001
+                    </p>
+                    <p className="modal-title mt-2">
+                      <strong className="title-content">Date:</strong>{" "}
+                      31/10/2021
+                    </p>
                   </div>
 
                   <div className="col-7">
-                    <p className="modal-title mt-2"><strong className="title-content">User:</strong> sweetlatte@gmail.com</p>
-                    <p className="modal-title mt-2"><strong className="title-content">Total:</strong> 999,999 VND</p>
+                    <p className="modal-title mt-2">
+                      <strong className="title-content">User:</strong>{" "}
+                      sweetlatte@gmail.com
+                    </p>
+                    <p className="modal-title mt-2">
+                      <strong className="title-content">Total:</strong> 999,999
+                      VND
+                    </p>
                   </div>
                   <div className="col-1 text-align-center mt-2">
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                 </div>
                 <div className="col-11">
@@ -188,7 +197,6 @@ export const OrdersScreen = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
