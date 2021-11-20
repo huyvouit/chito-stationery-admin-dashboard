@@ -22,7 +22,7 @@ export const OrdersScreen = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr  role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <td>#0001</td>
                   <td>31/10/2021</td>
                   <td>sweetlatte@gmail.com</td>
@@ -104,10 +104,10 @@ export const OrdersScreen = () => {
           </nav>
         </div>
         {/* <!-- Modal --> */}
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-body">
+            <div className="modal-content rounded-25">
+              <div className="modal-body ">
                 <div className="row mb-14">
                   <div className="col-4">
                     <p className="modal-title mt-2"><strong className="title-content">ID:</strong> #0001</p>
@@ -123,7 +123,7 @@ export const OrdersScreen = () => {
                   </div>
                 </div>
                 <div className="col-11">
-                  <table className=" table table-borderless table-hover table-custom">
+                  <table className=" table table-borderless table-hover table-custom ">
                     <thead>
                       <tr>
                         <th scope="col">Product</th>
@@ -131,7 +131,6 @@ export const OrdersScreen = () => {
                         <th scope="col">Price</th>
                       </tr>
                     </thead>
-                    <div className="table-wrapper-scroll-y my-custom-scrollbar ">
                     <tbody>
                       <tr>
                         <td className="d-flex justify-content-center align-items-center ">
@@ -182,7 +181,6 @@ export const OrdersScreen = () => {
                         <td>80,000 VND</td>
                       </tr>
                     </tbody>
-                    </div>
                   </table>
                 </div>
               </div>

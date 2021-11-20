@@ -77,6 +77,10 @@
     margin-top: 30px;
 }
 
+.mt-18 {
+    margin-top: 18px;
+}
+
 .mb-6 {
     margin-bottom: 6px;
 }
@@ -101,3 +105,6 @@
     margin-bottom: 36px;
 }
 
+.rounded-25 {
+    border-radius: 25px;
+}
