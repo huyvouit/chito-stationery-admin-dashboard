@@ -1,9 +1,9 @@
 import axiosClient from "./axios_client.js";
 
 const productApi = {
-  getAll: () => {
+  getAll: (params) => {
     const url = "/product/";
-    return axiosClient.get(url);
+    return axiosClient.get(url, { params });
   },
 
   getByFilter: (params) => {
@@ -19,6 +19,21 @@ const productApi = {
   getBySearch: (params) => {
     const url = `/product/search`;
     return axiosClient.get(url, { params });
+  },
+
+  postAddProduct: (body) => {
+    const url = `/product/add`;
+    return axiosClient.post(url, body);
+  },
+
+  patchUpdateProduct: (body) => {
+    const url = "/product/update";
+    return axiosClient.patch(url, body);
+  },
+
+  deleteProduct: (id) => {
+    const url = `/product/delete`;
+    return axiosClient.delete(url, id);
   },
 };
 

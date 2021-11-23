@@ -12,7 +12,11 @@ const RoutesSideBar = ({ component: Component, ...rest }) => {
   // console.log(authLoading, isAuthenticated);
 
   if (authLoading)
-    return <div className="spinner-border text-dark " role="status"></div>;
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border text-dark " role="status"></div>;
+      </div>
+    );
 
   return (
     <Route
