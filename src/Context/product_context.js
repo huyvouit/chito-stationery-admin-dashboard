@@ -22,12 +22,8 @@ const ProductContextProvider = ({ children }) => {
   });
 
   const [showAddProductModal, setShowAddProductModal] = useState(false);
-  const [showUpdateproductModal, setShowUpdateproductModal] = useState(false);
-  const [showToast, setShowToast] = useState({
-    show: false,
-    message: "",
-    type: null,
-  });
+  const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
+  const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
 
   // Get all products
   const getProducts = async (page) => {
@@ -102,11 +98,11 @@ const ProductContextProvider = ({ children }) => {
     getProducts,
     showAddProductModal,
     setShowAddProductModal,
-    showUpdateproductModal,
-    setShowUpdateproductModal,
+    showUpdateProductModal,
+    setShowUpdateProductModal,
+    showDeleteProductModal,
+    setShowDeleteProductModal,
     addProduct,
-    showToast,
-    setShowToast,
     deleteProduct,
     findProduct,
     updateProduct,

@@ -1,7 +1,7 @@
 import axiosClient from "./axios_client.js";
 
 const messageApi = {
-  getPurchaseHistory: (params) => {
+  getAllMessage: (params) => {
     const url = "/contact/";
     return axiosClient.get(url, { params });
   },

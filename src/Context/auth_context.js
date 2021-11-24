@@ -26,7 +26,6 @@ const AuthContextProvider = ({ children }) => {
           },
         });
       }
-      console.log("load:", authState);
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
       // localStorage.removeItem(REFTOKEN);

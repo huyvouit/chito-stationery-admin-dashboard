@@ -9,7 +9,7 @@ const RoutesSideBar = ({ component: Component, ...rest }) => {
   const {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
-  // console.log(authLoading, isAuthenticated);
+  console.log(authLoading, isAuthenticated);
 
   if (authLoading)
     return (

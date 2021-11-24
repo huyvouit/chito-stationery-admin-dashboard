@@ -4,26 +4,51 @@ import arrowRight from "../../Assets/icon/chevron-right.svg";
 import ava from "../../Assets/Image/ava.jpg";
 import { Link } from "react-router-dom";
 import { productContext } from "../../Context/product_context";
-import ReactPaginate from "react-paginate";
+import { CustomerContext } from "../../Context/customer_context";
+import { MessageContext } from "../../Context/message_context";
 import { formatter } from "../../Utils/formatter";
+import Moment from "react-moment";
+import { OrderContext } from "../../Context/order_context";
+
 export const DashboardScreen = () => {
   const {
-    productState: { product, products, productsLoading, maxPage },
+    productState: { products, productsLoading },
     getProducts,
   } = useContext(productContext);
+  const {
+    customerState: { customers, customersLoading },
+    getAllCustomer,
+  } = useContext(CustomerContext);
+  const {
+    messageState: { messages, messagesLoading },
+    getAllMessage,
+  } = useContext(MessageContext);
+  const {
+    orderState: { orders, ordersLoading },
+    getAllOrder,
+  } = useContext(OrderContext);
+
   let body = null;
 
   useEffect(() => {
     getProducts({ page: 1 });
+    getAllCustomer({ page: 1 });
+    getAllMessage({ page: 1 });
+    getAllOrder({ page: 1 });
   }, []);
 
-  if (productsLoading) {
+  if (productsLoading && customersLoading && messagesLoading && ordersLoading) {
     body = (
       <div className="spinner-container">
         <div className="spinner-border text-dark " role="status"></div>;
       </div>
     );
-  } else if (products.length === 0) {
+  } else if (
+    products.length === 0 &&
+    customers.length === 0 &&
+    messages.length === 0 &&
+    orders.length === 0
+  ) {
     body = (
       <>
         <p>No connect to database</p>
@@ -68,7 +93,7 @@ export const DashboardScreen = () => {
                   <Link className="admin-link" to="/orders">
                     <div className="box shadow-sm ord-total">
                       <div className="mb-18">Total</div>
-                      <div className="ord-number">+99</div>
+                      <div className="ord-number">{orders.length}</div>
                     </div>
                   </Link>
                 </div>
@@ -154,74 +179,30 @@ export const DashboardScreen = () => {
                   </Link>
                 </div>
                 <div className="box shadow-sm">
-                  <div className="mb-14">
-                    <div className="row col-12 align-items-center">
-                      <div className="col-3">
-                        <img
-                          className="admin-img"
-                          src={ava}
-                          alt="arrow-right"
-                        />
-                      </div>
-                      <div className="col-9">
-                        <div>
-                          <div className="mb-6 cus-name">Sweet Latte</div>
-                          <div>sweetlatte2710@gmail.com</div>
+                  {customers &&
+                    customers.slice(0, 4).map((item) => {
+                      return (
+                        <div key={item._id} className="mb-14">
+                          <div className="row col-12 align-items-center">
+                            <div className="col-3">
+                              <img
+                                className="admin-img"
+                                src={ava}
+                                alt="arrow-right"
+                              />
+                            </div>
+                            <div className="col-9">
+                              <div>
+                                <div className="mb-6 cus-name">
+                                  {item.fullname}
+                                </div>
+                                <div>{item.email}</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-14">
-                    <div className="row col-12 align-items-center">
-                      <div className="col-3">
-                        <img
-                          className="admin-img"
-                          src={ava}
-                          alt="arrow-right"
-                        />
-                      </div>
-                      <div className="col-9">
-                        <div>
-                          <div className="mb-6 cus-name">Sweet Latte</div>
-                          <div>sweetlatte2710@gmail.com</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-14">
-                    <div className="row col-12 align-items-center">
-                      <div className="col-3">
-                        <img
-                          className="admin-img"
-                          src={ava}
-                          alt="arrow-right"
-                        />
-                      </div>
-                      <div className="col-9">
-                        <div>
-                          <div className="mb-6 cus-name">Sweet Latte</div>
-                          <div>sweetlatte2710@gmail.com</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-9">
-                    <div className="row col-12">
-                      <div className="col-3">
-                        <img
-                          className="admin-img"
-                          src={ava}
-                          alt="arrow-right"
-                        />
-                      </div>
-                      <div className="col-9">
-                        <div>
-                          <div className="mb-9 cus-name">Sweet Latte</div>
-                          <div>sweetlatte2710@gmail.com</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      );
+                    })}
                 </div>
               </div>
 
@@ -242,28 +223,22 @@ export const DashboardScreen = () => {
                   </Link>
                 </div>
                 <div className="box shadow-sm">
-                  <div className="mb-18">
-                    <div className="row mb-9 mes-info">
-                      <div className="col-9 cus-name">Sweet Latte</div>
-                      <div className="col-3 text-sm">27/10/2021</div>
-                    </div>
-                    <div>
-                      I want to buy a cup of sweet latte and some sour candy.
-                      Please wrap this for me because although again sweet
-                      candy, ...
-                    </div>
-                  </div>
-                  <div className="mb-18">
-                    <div className="row mb-9 mes-info">
-                      <div className="col-9 cus-name">Sweet Latte</div>
-                      <div className="col-3 text-sm">27/10/2021</div>
-                    </div>
-                    <div>
-                      I want to buy a cup of sweet latte and some sour candy.
-                      Please wrap this for me because although again sweet
-                      candy, ...
-                    </div>
-                  </div>
+                  {messages &&
+                    messages.slice(0, 2).map((item) => {
+                      return (
+                        <div className="mb-18" key={item._id}>
+                          <div className="row mb-9 mes-info">
+                            <div className="col-9 cus-name">{item.name}</div>
+                            <div className="col-3 text-sm">
+                              <Moment format="DD/MM/YYYY">
+                                {item.createdAt}
+                              </Moment>
+                            </div>
+                          </div>
+                          <div className="text-limit">{item.message}</div>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>

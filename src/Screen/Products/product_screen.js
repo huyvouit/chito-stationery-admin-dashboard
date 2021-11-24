@@ -5,15 +5,19 @@ import { formatter } from "../../Utils/formatter";
 import edit from "../../Assets/icon/edit.svg";
 import remove from "../../Assets/icon/trash-2.svg";
 import { productContext } from "../../Context/product_context";
-import ReactPaginate from "react-paginate";
 import { useHistory } from "react-router-dom";
-
+import { Pagination } from "../../Utils/pagination";
+import ava from "../../Assets/Image/ava.jpg";
 export const ProductScreen = (props) => {
   const [query, setQuery] = useState(queryString.parse(props.location.search));
   console.log("query,", query);
   const {
     productState: { product, products, productsLoading, maxPage },
     getProducts,
+    findProduct,
+    setShowAddProductModal,
+    setShowUpdateProductModal,
+    setShowDeleteProductModal,
   } = useContext(productContext);
 
   useEffect(() => {
@@ -29,6 +33,10 @@ export const ProductScreen = (props) => {
     setQuery({ page: data.selected + 1 });
   };
 
+  const handleShowAddModal = () => {
+    setShowAddProductModal(true);
+    // findProduct(id);
+  };
   let body = null;
 
   if (productsLoading) {
@@ -56,6 +64,7 @@ export const ProductScreen = (props) => {
                 className="product-add-btn shadow-sm"
                 data-bs-toggle="modal"
                 data-bs-target="#modal-add-product"
+                // onClick={handleShowAddModal}
               >
                 + New product
               </button>
@@ -129,36 +138,75 @@ export const ProductScreen = (props) => {
               </div>
             </div>
           </div>
-
-          <ReactPaginate
+          <Pagination
             pageCount={maxPage}
-            pageRangeDisplayed={2}
-            marginPagesDisplayed={2}
-            onPageChange={handlePageClick}
-            breakLabel="..."
-            nextLabel={">"}
-            previousLabel={"<"}
-            breakClassName={"page-item"}
-            breakLinkClassName={"page-link page-nav-number"}
-            containerClassName={
-              "pagination justify-content-center mt-3 page-nav-custom"
-            }
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link page-nav-number"}
-            previousClassName={"page-item"}
-            previousLinkClassName={"page-link page-nav-number"}
-            nextClassName={"page-item"}
-            nextLinkClassName={"page-link page-nav-number"}
-            activeLinkClassName={"page-active"}
-            disabledClassName={"disabled"}
-            forcePage={query?.page - 1 || 0}
+            handleClick={handlePageClick}
+            query={query}
           />
         </div>
       </div>
     );
   }
 
-  return <>{body}</>;
+  return (
+    <>
+      {body}{" "}
+      <div
+        className="modal fade"
+        id="modal-add-product"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-lg modal-dialog-centered">
+          <div className="modal-content modal-custom width-custom">
+            <div className="modal-body">
+              <div className="row mb-27">
+                <div className="col-12">
+                  <div className="row">
+                    <div className="align-items-baseline">
+                      <img className="admin-img mr-15" src={ava} alt="ava" />
+
+                      <input className="input-common mb-18" type="text" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-1 text-align-right mt-2">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+              </div>
+              <div>
+                <div className="product-input-label mb-9">NAME</div>
+                <input className="input-common mb-18" type="text" />
+                <div className="product-input-label mb-9">PRICE</div>
+                <input className="input-common mb-18" number="text" />
+                <div className="product-input-label mb-9">DESCRIPTION</div>
+                <input className="input-common mb-18" type="text" />
+              </div>
+            </div>
+            <div className="modal-footer modal-footer-custom">
+              <button
+                type="button"
+                className="btn-common secondary-btn"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="button" className="btn-common primary-btn">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
   // return (
   //   <div className="products">
   //     <div className="container-fluid">
@@ -228,67 +276,6 @@ export const ProductScreen = (props) => {
   //       {/* Pagination */}
 
   //       {/* Modal Add Product */}
-  //       <div
-  //         className="modal fade"
-  //         id="modal-add-product"
-  //         tabindex="-1"
-  //         aria-labelledby="exampleModalLabel"
-  //         aria-hidden="true"
-  //       >
-  //         <div className="modal-dialog modal-lg modal-dialog-centered">
-  //           <div className="modal-content modal-custom width-custom">
-  //             <div className="modal-body">
-  //               <div className="row mb-27">
-  //                 <div className="col-11">
-  //                   <div className="row">
-  //                     <div className="align-items-baseline">
-  //                       <img className="admin-img mr-15" src={ava} alt="ava" />
-
-  //                       <button className="btn-common add-img-btn mr-15">
-  //                         <img
-  //                           className="add-img-btn-icon"
-  //                           src={camera}
-  //                           alt="add-img"
-  //                         />
-  //                         Add image
-  //                       </button>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-
-  //                 <div className="col-1 text-align-right mt-2">
-  //                   <button
-  //                     type="button"
-  //                     className="btn-close"
-  //                     data-bs-dismiss="modal"
-  //                     aria-label="Close"
-  //                   ></button>
-  //                 </div>
-  //               </div>
-  //               <div>
-  //                 <div className="product-input-label mb-9">NAME</div>
-  //                 <input className="input-common mb-18" type="text" />
-  //                 <div className="product-input-label mb-9">PRICE</div>
-  //                 <input className="input-common mb-18" number="text" />
-  //                 <div className="product-input-label mb-9">DESCRIPTION</div>
-  //                 <input className="input-common mb-18" type="text" />
-  //               </div>
-  //             </div>
-  //             <div className="modal-footer modal-footer-custom">
-  //               <button
-  //                 type="button"
-  //                 className="btn-common secondary-btn"
-  //                 data-bs-dismiss="modal"
-  //               >
-  //                 Cancel
-  //               </button>
-  //               <button type="button" className="btn-common primary-btn">
-  //                 Add
-  //               </button>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
 
   //       {/* Modal Edit Product */}
   //       <div

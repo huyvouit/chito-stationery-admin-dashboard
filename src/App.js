@@ -16,23 +16,51 @@ import { OrdersScreen } from "./Screen/Orders/order_screen";
 import { MessageScreen } from "./Screen/Message/message_screen";
 import { RevenueScreen } from "./Screen/Revenue/revenue_screen";
 import ProductContextProvider from "./Context/product_context";
-import QueryContextProvider from "./Context/query_context";
+import CustomerContextProvider from "./Context/customer_context";
+import MessageContextProvider from "./Context/message_context";
+import OrderContextProvider from "./Context/order_context";
 function App() {
   return (
     <AuthContextProvider>
       <ProductContextProvider>
-        <Router>
-          <Switch>
-            <Route path="/login" exact component={AuthScreen} />
-            <RoutesSideBar exact path="/" component={DashboardScreen} />
-            <RoutesSideBar exact path="/customers" component={CustomerScreen} />
-            <RoutesSideBar exact path="/products" component={ProductScreen} />
-            <RoutesSideBar exact path="/orders" component={OrdersScreen} />
-            <RoutesSideBar exact path="/messages" component={MessageScreen} />
-            <RoutesSideBar exact path="/revenue" component={RevenueScreen} />
-          </Switch>
-          <ToastContainer />
-        </Router>
+        <CustomerContextProvider>
+          <MessageContextProvider>
+            <OrderContextProvider>
+              <Router>
+                <Switch>
+                  <Route path="/login" exact component={AuthScreen} />
+                  <RoutesSideBar exact path="/" component={DashboardScreen} />
+                  <RoutesSideBar
+                    exact
+                    path="/customers"
+                    component={CustomerScreen}
+                  />
+                  <RoutesSideBar
+                    exact
+                    path="/products"
+                    component={ProductScreen}
+                  />
+                  <RoutesSideBar
+                    exact
+                    path="/orders"
+                    component={OrdersScreen}
+                  />
+                  <RoutesSideBar
+                    exact
+                    path="/messages"
+                    component={MessageScreen}
+                  />
+                  <RoutesSideBar
+                    exact
+                    path="/revenue"
+                    component={RevenueScreen}
+                  />
+                </Switch>
+                <ToastContainer />
+              </Router>
+            </OrderContextProvider>
+          </MessageContextProvider>
+        </CustomerContextProvider>
       </ProductContextProvider>
     </AuthContextProvider>
   );
