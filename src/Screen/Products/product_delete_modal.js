@@ -26,7 +26,7 @@ const DeleteProductModal = ({ query }) => {
       if (response.success) {
         await getProducts(query);
         setShowDeleteProductModal(false);
-        toast.success(response.msg, {
+        toast.success(response.message, {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Modal } from "react-bootstrap";
 import { MessageContext } from "../../Context/message_context";
-import { formatter } from "../../Utils/formatter";
 import Moment from "react-moment";
 export const MessageModal = () => {
   const {
@@ -9,7 +8,7 @@ export const MessageModal = () => {
     showMessageModal,
     setShowMessageModal,
   } = useContext(MessageContext);
-
+  console.log(message);
   const handleCloseModal = () => {
     setShowMessageModal(false);
   };
@@ -42,7 +41,7 @@ export const MessageModal = () => {
           <div className="col-5 justify-content-center">
             <p className="modal-title mt-2">
               <strong className="title-content">Date:</strong>
-              <Moment format="DD/MM/YYYY"> {message.createdAt}</Moment>
+              <Moment format="DD/MM/YYYY">{message.createdAt}</Moment>
             </p>
           </div>
         </div>

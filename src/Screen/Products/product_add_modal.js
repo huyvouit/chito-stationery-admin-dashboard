@@ -66,8 +66,7 @@ const AddProductModal = ({ query }) => {
     if (!isValid) return;
 
     try {
-      const body = { ...newProduct };
-      const response = await addProduct(body);
+      const response = await addProduct(newProduct);
       if (response.success) {
         await getProducts(query);
         toast.success(response.message, {
@@ -102,7 +101,14 @@ const AddProductModal = ({ query }) => {
   };
 
   const resetAddProductData = () => {
-    setNewProduct({ image: "", description: "", price: "", productName: "" });
+    setNewProduct({
+      image: "",
+      description: "",
+      price: "",
+      productName: "",
+      detail: "",
+      type: "washi tape",
+    });
     setShowAddProductModal(false);
     setValidationMsg({});
   };

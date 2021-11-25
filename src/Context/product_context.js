@@ -61,9 +61,7 @@ const ProductContextProvider = ({ children }) => {
   // Delete product
   const deleteProduct = async (id) => {
     try {
-      const param = { id };
-      console.log(param);
-      const response = await productApi.deleteProduct(param);
+      const response = await productApi.deleteProduct(id);
       console.log(response.data);
       // if (response.data.success)
       // dispatch({ type: DELETE_PRODUCT, payload: productId });
