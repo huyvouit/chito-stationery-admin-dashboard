@@ -32,8 +32,8 @@ const productApi = {
   },
 
   deleteProduct: (id) => {
-    const url = `/product/delete`;
-    return axiosClient.delete(url, id);
+    const url = `/product/delete/${id}`;
+    return axiosClient.delete(url);
   },
 };
 

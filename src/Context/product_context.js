@@ -59,11 +59,15 @@ const ProductContextProvider = ({ children }) => {
   };
 
   // Delete product
-  const deleteProduct = async (productId) => {
+  const deleteProduct = async (id) => {
     try {
-      const response = await productApi.deleteProduct(productId);
-      if (response.data.success)
-        dispatch({ type: DELETE_PRODUCT, payload: productId });
+      const param = { id };
+      console.log(param);
+      const response = await productApi.deleteProduct(param);
+      console.log(response.data);
+      // if (response.data.success)
+      // dispatch({ type: DELETE_PRODUCT, payload: productId });
+      return response.data;
     } catch (error) {
       console.log(error);
     }

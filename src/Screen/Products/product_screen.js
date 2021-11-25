@@ -10,6 +10,7 @@ import { Pagination } from "../../Utils/pagination";
 import ava from "../../Assets/Image/ava.jpg";
 import AddProductModal from "./product_add_modal";
 import UpdateProductModal from "./product_update_modal";
+import DeleteProductModal from "./product_delete_modal";
 export const ProductScreen = (props) => {
   const [query, setQuery] = useState(queryString.parse(props.location.search));
 
@@ -21,7 +22,7 @@ export const ProductScreen = (props) => {
     setShowUpdateProductModal,
     setShowDeleteProductModal,
   } = useContext(ProductContext);
-  console.log(products);
+
   useEffect(() => {
     const params = Object.keys(query).length > 0 ? query : { page: 1 };
 
@@ -43,6 +44,10 @@ export const ProductScreen = (props) => {
   const handleShowUpdateProduct = (id) => {
     findProduct(id);
     setShowUpdateProductModal(true);
+  };
+  const handleShowDeleteProduct = (id) => {
+    findProduct(id);
+    setShowDeleteProductModal(true);
   };
 
   if (productsLoading) {
@@ -130,7 +135,12 @@ export const ProductScreen = (props) => {
                                 >
                                   <img src={edit} alt="edit-btn" />
                                 </button>
-                                <button className="float-btn shadow">
+                                <button
+                                  className="float-btn shadow"
+                                  onClick={() =>
+                                    handleShowDeleteProduct(item._id)
+                                  }
+                                >
                                   <img src={remove} alt="remove-btn" />
                                 </button>
                               </div>
@@ -161,6 +171,11 @@ export const ProductScreen = (props) => {
       />
       {product !== null && (
         <UpdateProductModal
+          query={Object.keys(query).length > 0 ? query : { page: 1 }}
+        />
+      )}
+      {product !== null && (
+        <DeleteProductModal
           query={Object.keys(query).length > 0 ? query : { page: 1 }}
         />
       )}
