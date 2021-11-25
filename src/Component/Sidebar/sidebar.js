@@ -28,7 +28,7 @@ const Sidebar = (props) => {
   const logout = () => logoutUser();
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">CHITO STATIONERY</div>
+      <div className="sidebar-logo">CHITO</div>
       <ul className="sidebar-body">
         {sidebar_routes.map((item, index) => (
           <li
