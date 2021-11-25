@@ -159,7 +159,11 @@ export const ProductScreen = (props) => {
       <AddProductModal
         query={Object.keys(query).length > 0 ? query : { page: 1 }}
       />
-      {product !== null && <UpdateProductModal />}
+      {product !== null && (
+        <UpdateProductModal
+          query={Object.keys(query).length > 0 ? query : { page: 1 }}
+        />
+      )}
       {/* <div
         className="modal fade"
         id="modal-add-product"

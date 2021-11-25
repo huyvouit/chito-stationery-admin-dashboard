@@ -78,11 +78,12 @@ const ProductContextProvider = ({ children }) => {
   };
 
   // Update product
-  const updateProduct = async (updatedproduct) => {
+  const updateProduct = async (updatedProduct) => {
     try {
-      const response = await productApi.patchUpdateProduct(updateProduct);
+      const response = await productApi.patchUpdateProduct(updatedProduct);
+      console.log(response.data);
       if (response.data.success) {
-        dispatch({ type: UPDATE_PRODUCT, payload: response.data.product });
+        // dispatch({ type: UPDATE_PRODUCT, payload: response.data.product });
         return response.data;
       }
     } catch (error) {

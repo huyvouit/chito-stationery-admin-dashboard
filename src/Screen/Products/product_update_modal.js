@@ -20,13 +20,20 @@ const UpdateProductModal = ({ query }) => {
 
   useEffect(() => setUpdatedProduct(product), [product]);
 
-  const { image, productName, description, price, type } = updatedProduct;
+  const { image, productName, description, price, type, detail } =
+    updatedProduct;
   const [validationMsg, setValidationMsg] = useState({});
 
   const onChangeNewProductForm = (event) =>
     setUpdatedProduct({
       ...updatedProduct,
       [event.target.name]: event.target.value,
+    });
+
+  const onChangePrice = (event) =>
+    setUpdatedProduct({
+      ...updatedProduct,
+      [event.target.name]: { $numberDecimal: event.target.value },
     });
 
   const handleCloseModal = () => {
@@ -44,6 +51,9 @@ const UpdateProductModal = ({ query }) => {
     }
     if (isEmpty(description)) {
       msg.description = "Please input your desctiption.";
+    }
+    if (isEmpty(detail)) {
+      msg.detail = "Please input your detail.";
     }
     if (isEmpty(productName)) {
       msg.productName = "Please input your name of product";
@@ -63,10 +73,22 @@ const UpdateProductModal = ({ query }) => {
     if (!isValid) return;
 
     try {
-      const response = await updateProduct(updatedProduct);
+      const body = {
+        id: updatedProduct._id,
+        data: {
+          productName,
+          type,
+          description,
+          price,
+          detail,
+        },
+      };
+      console.log(body);
+      const response = await updateProduct(body);
       if (response.success) {
         await getProducts(query);
-        toast.success(response.message, {
+        setShowUpdateProductModal(false);
+        toast.success(response.msg, {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -102,7 +124,12 @@ const UpdateProductModal = ({ query }) => {
         <Modal.Title>Update Product</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body
+        style={{
+          maxHeight: "calc(100vh - 210px)",
+          overflowY: "auto",
+        }}
+      >
         <div className="row mb-27">
           <div className="col-12">
             <div className="row">
@@ -138,7 +165,7 @@ const UpdateProductModal = ({ query }) => {
               type="number"
               name="price"
               value={price.$numberDecimal}
-              onChange={onChangeNewProductForm}
+              onChange={onChangePrice}
             />
             <p style={{ color: "red" }}>{validationMsg["price"]}</p>
             <div className="product-input-label mb-9">DESCRIPTION</div>
@@ -150,6 +177,15 @@ const UpdateProductModal = ({ query }) => {
               onChange={onChangeNewProductForm}
             />
             <p style={{ color: "red" }}>{validationMsg["description"]}</p>
+            <div className="product-input-label mb-9">DETAIL</div>
+            <input
+              className="input-common mb-18"
+              type="text"
+              name="detail"
+              value={detail}
+              onChange={onChangeNewProductForm}
+            />
+            <p style={{ color: "red" }}>{validationMsg["detail"]}</p>
             <div className="product-input-label mb-9">TYPE</div>
             <select
               className="form-select"

@@ -20,10 +20,11 @@ const AddProductModal = ({ query }) => {
     image: "",
     productName: "",
     description: "",
+    detail: "",
     price: "",
     type: "washi tape",
   });
-  const { image, productName, description, price, type } = newProduct;
+  const { image, productName, description, price, type, detail } = newProduct;
   const [validationMsg, setValidationMsg] = useState({});
 
   const onChangeNewProductForm = (event) =>
@@ -36,19 +37,22 @@ const AddProductModal = ({ query }) => {
   const validateAll = () => {
     const msg = {};
     if (isEmpty(image)) {
-      msg.image = "Please input your url image.";
+      msg.image = "Please input url image.";
     }
     if (isEmpty(price)) {
-      msg.price = "Please input your price.";
+      msg.price = "Please input price.";
     }
     if (isEmpty(description)) {
-      msg.description = "Please input your desctiption.";
+      msg.description = "Please input desctiption.";
+    }
+    if (isEmpty(detail)) {
+      msg.detail = "Please input detail.";
     }
     if (isEmpty(productName)) {
-      msg.productName = "Please input your name of product";
+      msg.productName = "Please input name of product";
     }
     if (isEmpty(type)) {
-      msg.type = "Please input your type of product.";
+      msg.type = "Please input type of product.";
     }
 
     setValidationMsg(msg);
@@ -62,7 +66,7 @@ const AddProductModal = ({ query }) => {
     if (!isValid) return;
 
     try {
-      const body = { ...newProduct, detail: " " };
+      const body = { ...newProduct };
       const response = await addProduct(body);
       if (response.success) {
         await getProducts(query);
@@ -109,7 +113,12 @@ const AddProductModal = ({ query }) => {
         <Modal.Title>Add Product</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body
+        style={{
+          maxHeight: "calc(100vh - 210px)",
+          overflowY: "auto",
+        }}
+      >
         <div className="row mb-27">
           <div className="col-12">
             <div className="row">
@@ -156,6 +165,15 @@ const AddProductModal = ({ query }) => {
               onChange={onChangeNewProductForm}
             />
             <p style={{ color: "red" }}>{validationMsg["description"]}</p>
+            <div className="product-input-label mb-9">DETAIL</div>
+            <input
+              className="input-common mb-18"
+              type="text"
+              name="detail"
+              value={detail}
+              onChange={onChangeNewProductForm}
+            />
+            <p style={{ color: "red" }}>{validationMsg["detail"]}</p>
             <div className="product-input-label mb-9">TYPE</div>
             <select
               className="form-select"
