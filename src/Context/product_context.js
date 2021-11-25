@@ -10,7 +10,7 @@ import {
 } from "../Utils/constants";
 import productApi from "../Api/product_api";
 
-export const productContext = createContext();
+export const ProductContext = createContext();
 
 const ProductContextProvider = ({ children }) => {
   // State
@@ -47,14 +47,14 @@ const ProductContextProvider = ({ children }) => {
   const addProduct = async (newproduct) => {
     try {
       const response = await productApi.postAddProduct(newproduct);
+      console.log(response.data);
       if (response.data.success) {
-        dispatch({ type: ADD_PRODUCT, payload: response.data.product });
+        // dispatch({ type: ADD_PRODUCT, payload: response.data.product });
         return response.data;
       }
     } catch (error) {
-      return error.response.data
-        ? error.response.data
-        : { success: false, message: "Server error" };
+      // console.log(error.response.data.error);
+      return error.response.data;
     }
   };
 
@@ -86,9 +86,8 @@ const ProductContextProvider = ({ children }) => {
         return response.data;
       }
     } catch (error) {
-      return error.response.data
-        ? error.response.data
-        : { success: false, message: "Server error" };
+      // console.log(error.response.data.error);
+      return error.response.data;
     }
   };
 
@@ -109,9 +108,9 @@ const ProductContextProvider = ({ children }) => {
   };
 
   return (
-    <productContext.Provider value={productContextData}>
+    <ProductContext.Provider value={productContextData}>
       {children}
-    </productContext.Provider>
+    </ProductContext.Provider>
   );
 };
 

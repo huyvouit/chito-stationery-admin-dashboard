@@ -3,7 +3,7 @@ import "./dashboard.css";
 import arrowRight from "../../Assets/icon/chevron-right.svg";
 import ava from "../../Assets/Image/ava.jpg";
 import { Link } from "react-router-dom";
-import { productContext } from "../../Context/product_context";
+import { ProductContext } from "../../Context/product_context";
 import { CustomerContext } from "../../Context/customer_context";
 import { MessageContext } from "../../Context/message_context";
 import { formatter } from "../../Utils/formatter";
@@ -14,7 +14,7 @@ export const DashboardScreen = () => {
   const {
     productState: { products, productsLoading },
     getProducts,
-  } = useContext(productContext);
+  } = useContext(ProductContext);
   const {
     customerState: { customers, customersLoading },
     getAllCustomer,

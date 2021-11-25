@@ -1,36 +1,37 @@
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../../Context/product_context";
 import ava from "../../Assets/Image/ava.jpg";
 import { toast } from "react-toastify";
 import isEmpty from "validator/lib/isEmpty";
 
-const AddProductModal = ({ query }) => {
+const UpdateProductModal = ({ query }) => {
   // Contexts
   const {
-    showAddProductModal,
-    setShowAddProductModal,
+    productState: { product },
+    showUpdateProductModal,
+    setShowUpdateProductModal,
     getProducts,
-    addProduct,
+    updateProduct,
   } = useContext(ProductContext);
 
   // State
-  const [newProduct, setNewProduct] = useState({
-    image: "",
-    productName: "",
-    description: "",
-    price: "",
-    type: "washi tape",
-  });
-  const { image, productName, description, price, type } = newProduct;
+  const [updatedProduct, setUpdatedProduct] = useState(product);
+
+  useEffect(() => setUpdatedProduct(product), [product]);
+
+  const { image, productName, description, price, type } = updatedProduct;
   const [validationMsg, setValidationMsg] = useState({});
 
   const onChangeNewProductForm = (event) =>
-    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+    setUpdatedProduct({
+      ...updatedProduct,
+      [event.target.name]: event.target.value,
+    });
 
   const handleCloseModal = () => {
-    resetAddProductData();
+    setUpdatedProduct(product);
+    setShowUpdateProductModal(false);
   };
 
   const validateAll = () => {
@@ -38,7 +39,7 @@ const AddProductModal = ({ query }) => {
     if (isEmpty(image)) {
       msg.image = "Please input your url image.";
     }
-    if (isEmpty(price)) {
+    if (isEmpty(price.$numberDecimal)) {
       msg.price = "Please input your price.";
     }
     if (isEmpty(description)) {
@@ -62,8 +63,7 @@ const AddProductModal = ({ query }) => {
     if (!isValid) return;
 
     try {
-      const body = { ...newProduct, detail: " " };
-      const response = await addProduct(body);
+      const response = await updateProduct(updatedProduct);
       if (response.success) {
         await getProducts(query);
         toast.success(response.message, {
@@ -94,19 +94,12 @@ const AddProductModal = ({ query }) => {
         draggable: true,
       });
     }
-    resetAddProductData();
-  };
-
-  const resetAddProductData = () => {
-    setNewProduct({ image: "", description: "", price: "", productName: "" });
-    setShowAddProductModal(false);
-    setValidationMsg({});
   };
 
   return (
-    <Modal show={showAddProductModal} onHide={handleCloseModal} size="md">
+    <Modal show={showUpdateProductModal} onHide={handleCloseModal} size="md">
       <Modal.Header closeButton>
-        <Modal.Title>Add Product</Modal.Title>
+        <Modal.Title>Update Product</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -121,7 +114,8 @@ const AddProductModal = ({ query }) => {
                   type="text"
                   name="image"
                   value={image}
-                  onChange={onChangeNewProductForm}
+                  // onChange={onChangeNewProductForm}
+                  readOnly
                 />
                 <p style={{ color: "red" }}>{validationMsg["image"]}</p>
               </div>
@@ -143,7 +137,7 @@ const AddProductModal = ({ query }) => {
               className="input-common mb-18"
               type="number"
               name="price"
-              value={price}
+              value={price.$numberDecimal}
               onChange={onChangeNewProductForm}
             />
             <p style={{ color: "red" }}>{validationMsg["price"]}</p>
@@ -190,4 +184,4 @@ const AddProductModal = ({ query }) => {
   );
 };
 
-export default AddProductModal;
+export default UpdateProductModal;

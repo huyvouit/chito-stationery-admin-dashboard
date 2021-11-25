@@ -4,13 +4,15 @@ import queryString from "query-string";
 import { formatter } from "../../Utils/formatter";
 import edit from "../../Assets/icon/edit.svg";
 import remove from "../../Assets/icon/trash-2.svg";
-import { productContext } from "../../Context/product_context";
+import { ProductContext } from "../../Context/product_context";
 import { useHistory } from "react-router-dom";
 import { Pagination } from "../../Utils/pagination";
 import ava from "../../Assets/Image/ava.jpg";
+import AddProductModal from "./product_add_modal";
+import UpdateProductModal from "./product_update_modal";
 export const ProductScreen = (props) => {
   const [query, setQuery] = useState(queryString.parse(props.location.search));
-  console.log("query,", query);
+
   const {
     productState: { product, products, productsLoading, maxPage },
     getProducts,
@@ -18,11 +20,11 @@ export const ProductScreen = (props) => {
     setShowAddProductModal,
     setShowUpdateProductModal,
     setShowDeleteProductModal,
-  } = useContext(productContext);
-
+  } = useContext(ProductContext);
+  console.log(products);
   useEffect(() => {
     const params = Object.keys(query).length > 0 ? query : { page: 1 };
-    console.log("params", params);
+
     getProducts(params);
   }, [query]);
 
@@ -35,9 +37,13 @@ export const ProductScreen = (props) => {
 
   const handleShowAddModal = () => {
     setShowAddProductModal(true);
-    // findProduct(id);
   };
   let body = null;
+
+  const handleShowUpdateProduct = (id) => {
+    findProduct(id);
+    setShowUpdateProductModal(true);
+  };
 
   if (productsLoading) {
     body = (
@@ -62,9 +68,7 @@ export const ProductScreen = (props) => {
             <div className="col-2">
               <button
                 className="product-add-btn shadow-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#modal-add-product"
-                // onClick={handleShowAddModal}
+                onClick={handleShowAddModal}
               >
                 + New product
               </button>
@@ -101,9 +105,13 @@ export const ProductScreen = (props) => {
                               />
                             </td>
                             <td>{item.productName}</td>
-                            <td>
-                              {formatter.format(item.price.$numberDecimal)}
-                            </td>
+                            {item.price.$numberDecimal ? (
+                              <td>
+                                {formatter.format(item.price.$numberDecimal)}
+                              </td>
+                            ) : (
+                              ""
+                            )}
                             <td className="col-3">
                               <p
                                 className="text-limit"
@@ -116,16 +124,13 @@ export const ProductScreen = (props) => {
                               <div>
                                 <button
                                   className="float-btn mr-15 shadow"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#modal-edit-product"
+                                  onClick={() =>
+                                    handleShowUpdateProduct(item._id)
+                                  }
                                 >
                                   <img src={edit} alt="edit-btn" />
                                 </button>
-                                <button
-                                  className="float-btn shadow"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#modal-remove-product"
-                                >
+                                <button className="float-btn shadow">
                                   <img src={remove} alt="remove-btn" />
                                 </button>
                               </div>
@@ -151,7 +156,11 @@ export const ProductScreen = (props) => {
   return (
     <>
       {body}{" "}
-      <div
+      <AddProductModal
+        query={Object.keys(query).length > 0 ? query : { page: 1 }}
+      />
+      {product !== null && <UpdateProductModal />}
+      {/* <div
         className="modal fade"
         id="modal-add-product"
         tabindex="-1"
@@ -204,7 +213,7 @@ export const ProductScreen = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
   // return (

@@ -28,7 +28,7 @@ export const productReducer = (state, action) => {
     case ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, payload],
+        products: [{ ...payload }, ...state.products],
       };
 
     case DELETE_PRODUCT:
