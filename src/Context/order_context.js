@@ -22,12 +22,14 @@ const OrderContextProvider = ({ children }) => {
   const getAllOrder = async (page) => {
     try {
       const response = await orderApi.getPurchaseHistory(page);
+      console.log(response.data.totalOrder);
       if (response.data) {
         dispatch({
           type: ORDERS_LOADED_SUCCESS,
           payload: {
             orders: response.data.orders,
             maxPage: response.data.maxPage,
+            totalOrder: response.data.totalOrder,
           },
         });
       }

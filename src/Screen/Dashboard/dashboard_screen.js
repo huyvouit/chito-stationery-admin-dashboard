@@ -24,7 +24,7 @@ export const DashboardScreen = () => {
     getAllMessage,
   } = useContext(MessageContext);
   const {
-    orderState: { orders, ordersLoading },
+    orderState: { orders, ordersLoading, totalOrder },
     getAllOrder,
   } = useContext(OrderContext);
 
@@ -93,7 +93,7 @@ export const DashboardScreen = () => {
                   <Link className="admin-link" to="/orders">
                     <div className="box shadow-sm ord-total">
                       <div className="mb-18">Total</div>
-                      <div className="ord-number">{orders.length}</div>
+                      <div className="ord-number">{totalOrder}</div>
                     </div>
                   </Link>
                 </div>
@@ -130,7 +130,7 @@ export const DashboardScreen = () => {
                   </thead>
                   <tbody>
                     {products &&
-                      products.slice(0, 4).map((item) => {
+                      products.map((item) => {
                         return (
                           <tr key={item._id}>
                             <td>{item._id}</td>
@@ -224,7 +224,7 @@ export const DashboardScreen = () => {
                 </div>
                 <div className="box shadow-sm">
                   {messages &&
-                    messages.slice(0, 2).map((item) => {
+                    messages.slice(0, 3).map((item) => {
                       return (
                         <div className="mb-18" key={item._id}>
                           <div className="row mb-9 mes-info">

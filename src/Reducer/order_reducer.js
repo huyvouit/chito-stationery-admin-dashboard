@@ -13,6 +13,7 @@ export const OrderReducer = (state, action) => {
         orders: payload.orders,
         ordersLoading: false,
         maxPage: payload.maxPage,
+        totalOrder: payload.totalOrder,
       };
 
     case ORDERS_LOADED_FAIL:

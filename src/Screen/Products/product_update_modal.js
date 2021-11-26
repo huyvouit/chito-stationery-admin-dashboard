@@ -134,7 +134,7 @@ const UpdateProductModal = ({ query }) => {
           <div className="col-12">
             <div className="row">
               <div className="align-items-baseline">
-                <img className="admin-img mr-15" src={ava} alt="ava" />
+                <img className="admin-img mr-15" src={image} alt="ava" />
 
                 <input
                   className="input-common mb-18"
@@ -213,7 +213,7 @@ const UpdateProductModal = ({ query }) => {
           className="btn-common primary-btn"
           onClick={onSubmit}
         >
-          Add
+          Update
         </button>
       </Modal.Footer>
     </Modal>

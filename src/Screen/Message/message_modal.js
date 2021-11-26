@@ -50,7 +50,13 @@ export const MessageModal = () => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <button onClick={handleCloseModal}>Close</button>
+        <button
+          type="button"
+          className="btn-common secondary-btn"
+          onClick={handleCloseModal}
+        >
+          Close
+        </button>
       </Modal.Footer>
     </Modal>
   );

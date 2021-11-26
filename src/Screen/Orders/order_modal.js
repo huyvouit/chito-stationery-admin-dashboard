@@ -25,7 +25,9 @@ export const OrderModal = () => {
       // dialogClassName="rounded-25"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter"></Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Detail Order
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className="row mb-14">
@@ -94,7 +96,13 @@ export const OrderModal = () => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <button onClick={handleCloseModal}>Close</button>
+        <button
+          type="button"
+          className="btn-common secondary-btn"
+          onClick={handleCloseModal}
+        >
+          Close
+        </button>
       </Modal.Footer>
     </Modal>
   );
