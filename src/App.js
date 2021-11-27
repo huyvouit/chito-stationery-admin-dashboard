@@ -19,6 +19,7 @@ import ProductContextProvider from "./Context/product_context";
 import CustomerContextProvider from "./Context/customer_context";
 import MessageContextProvider from "./Context/message_context";
 import OrderContextProvider from "./Context/order_context";
+import RevenueContextProvider from "./Context/revenue_context";
 function App() {
   return (
     <AuthContextProvider>
@@ -26,38 +27,40 @@ function App() {
         <CustomerContextProvider>
           <MessageContextProvider>
             <OrderContextProvider>
-              <Router>
-                <Switch>
-                  <Route path="/login" exact component={AuthScreen} />
-                  <RoutesSideBar exact path="/" component={DashboardScreen} />
-                  <RoutesSideBar
-                    exact
-                    path="/customers"
-                    component={CustomerScreen}
-                  />
-                  <RoutesSideBar
-                    exact
-                    path="/products"
-                    component={ProductScreen}
-                  />
-                  <RoutesSideBar
-                    exact
-                    path="/orders"
-                    component={OrdersScreen}
-                  />
-                  <RoutesSideBar
-                    exact
-                    path="/messages"
-                    component={MessageScreen}
-                  />
-                  <RoutesSideBar
-                    exact
-                    path="/revenue"
-                    component={RevenueScreen}
-                  />
-                </Switch>
-                <ToastContainer />
-              </Router>
+              <RevenueContextProvider>
+                <Router>
+                  <Switch>
+                    <Route path="/login" exact component={AuthScreen} />
+                    <RoutesSideBar exact path="/" component={DashboardScreen} />
+                    <RoutesSideBar
+                      exact
+                      path="/customers"
+                      component={CustomerScreen}
+                    />
+                    <RoutesSideBar
+                      exact
+                      path="/products"
+                      component={ProductScreen}
+                    />
+                    <RoutesSideBar
+                      exact
+                      path="/orders"
+                      component={OrdersScreen}
+                    />
+                    <RoutesSideBar
+                      exact
+                      path="/messages"
+                      component={MessageScreen}
+                    />
+                    <RoutesSideBar
+                      exact
+                      path="/revenue"
+                      component={RevenueScreen}
+                    />
+                  </Switch>
+                  <ToastContainer />
+                </Router>
+              </RevenueContextProvider>
             </OrderContextProvider>
           </MessageContextProvider>
         </CustomerContextProvider>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./dashboard.css";
 import arrowRight from "../../Assets/icon/chevron-right.svg";
 import ava from "../../Assets/Image/ava.jpg";
@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { ProductContext } from "../../Context/product_context";
 import { CustomerContext } from "../../Context/customer_context";
 import { MessageContext } from "../../Context/message_context";
+import { OrderContext } from "../../Context/order_context";
+import { RevenueContext } from "../../Context/revenue_context";
 import { formatter } from "../../Utils/formatter";
 import Moment from "react-moment";
-import { OrderContext } from "../../Context/order_context";
-
 export const DashboardScreen = () => {
   const {
     productState: { products, productsLoading },
@@ -27,7 +27,10 @@ export const DashboardScreen = () => {
     orderState: { orders, ordersLoading, totalOrder },
     getAllOrder,
   } = useContext(OrderContext);
-
+  const {
+    revenueState: { revenueWeek, revenueMonth, revenueLoading },
+    getAllRevenue,
+  } = useContext(RevenueContext);
   let body = null;
 
   useEffect(() => {
@@ -35,9 +38,16 @@ export const DashboardScreen = () => {
     getAllCustomer({ page: 1 });
     getAllMessage({ page: 1 });
     getAllOrder({ page: 1 });
+    getAllRevenue();
   }, []);
 
-  if (productsLoading && customersLoading && messagesLoading && ordersLoading) {
+  if (
+    productsLoading &&
+    customersLoading &&
+    messagesLoading &&
+    ordersLoading &&
+    revenueLoading
+  ) {
     body = (
       <div className="spinner-container">
         <div className="spinner-border text-dark " role="status"></div>;
@@ -73,13 +83,18 @@ export const DashboardScreen = () => {
                       <div className="col-6">
                         <div className="rev-week">
                           <div className="mb-18">This week</div>
-                          <div className="rev-money">+999,999 VND</div>
+                          <div className="rev-money">
+                            {formatter.format(revenueWeek)}
+                          </div>
                         </div>
                       </div>
                       <div className="col-6">
                         <div className="rev-month">
                           <div className="mb-18">This month</div>
-                          <div className="rev-money">+9,999,999 VND</div>
+                          <div className="rev-money">
+                            {" "}
+                            {formatter.format(revenueMonth)}
+                          </div>
                         </div>
                       </div>
                     </div>
