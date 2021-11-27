@@ -18,7 +18,7 @@ export const OrderModal = () => {
     <Modal
       show={showOrderModal}
       onHide={handleCloseModal}
-      size="md"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       // className=""
@@ -76,7 +76,7 @@ export const OrderModal = () => {
               {order["productList"].map((item) => {
                 return (
                   <tr key={item._id}>
-                    <td className="d-flex justify-content-center align-items-center ">
+                    <td className="d-flex justify-content-start align-items-center ">
                       <img
                         className="admin-img me-3"
                         src={item.image}

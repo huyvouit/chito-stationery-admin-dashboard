@@ -162,7 +162,7 @@ export const DashboardScreen = () => {
                             </td>
                             <td className="col-3">
                               <p
-                                className="text-limit"
+                                className="text-limit-1"
                                 style={{ marginBottom: "0" }}
                               >
                                 {item.description}
@@ -250,7 +250,7 @@ export const DashboardScreen = () => {
                               </Moment>
                             </div>
                           </div>
-                          <div className="text-limit">{item.message}</div>
+                          <div className="text-limit-1">{item.message}</div>
                         </div>
                       );
                     })}

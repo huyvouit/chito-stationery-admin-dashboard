@@ -119,7 +119,7 @@ export const ProductScreen = (props) => {
                             )}
                             <td className="col-3">
                               <p
-                                className="text-limit"
+                                className="text-limit-1"
                                 style={{ marginBottom: "0" }}
                               >
                                 {item.description}
