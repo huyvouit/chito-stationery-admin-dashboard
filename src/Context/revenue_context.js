@@ -20,7 +20,7 @@ const RevenueContextProvider = ({ children }) => {
     try {
       const week = await revenueApi.getAllByWeek();
       const month = await revenueApi.getAllByMonth();
-      console.log(week.data, month.data);
+
       if (week.data && month.data) {
         dispatch({
           type: REVENUE_LOADED_SUCCESS,
