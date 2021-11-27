@@ -72,16 +72,17 @@ export const MessageScreen = (props) => {
                       messages.map((item) => {
                         return (
                           <tr
+                            className="col-12"
                             key={item._id}
                             onClick={() => handleShowModal(item._id)}
                           >
-                            <td>
+                            <td className="col-2">
                               <Moment format="DD/MM/YYYY">
                                 {item.createdAt}
                               </Moment>
                             </td>
-                            <td>{item.email}</td>
-                            <td>{item.name}</td>
+                            <td className="col-2">{item.email}</td>
+                            <td className="col-2">{item.name}</td>
                             <td className="text-limit">{item.message}</td>
                           </tr>
                         );

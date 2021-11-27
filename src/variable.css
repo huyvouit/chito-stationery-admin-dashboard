@@ -169,6 +169,7 @@
 .text-limit {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  height: 52.8px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
