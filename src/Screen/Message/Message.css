@@ -8,3 +8,7 @@
     text-overflow: ellipsis;
     word-break: break-word;
 }
+
+.set-height {
+    height: 16px;
+}

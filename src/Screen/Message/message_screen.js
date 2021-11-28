@@ -81,8 +81,8 @@ export const MessageScreen = (props) => {
                                 {item.createdAt}
                               </Moment>
                             </td>
-                            <td className="col-2">{item.email}</td>
-                            <td className="col-2">{item.name}</td>
+                            <td className="col-3">{item.email}</td>
+                            <td className="col-2 ellipsis"><span className="set-height">{item.name}</span></td>
                             <td className="text-limit">{item.message}</td>
                           </tr>
                         );
