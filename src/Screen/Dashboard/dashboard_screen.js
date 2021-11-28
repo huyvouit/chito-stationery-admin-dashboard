@@ -243,8 +243,8 @@ export const DashboardScreen = () => {
                       return (
                         <div className="mb-18" key={item._id}>
                           <div className="row mb-9 mes-info">
-                            <div className="col-9 cus-name">{item.name}</div>
-                            <div className="col-3 text-sm">
+                            <div className="col-8 cus-name ellipsis"><span>{item.name}</span></div>
+                            <div className="col-4 text-sm ">
                               <Moment format="DD/MM/YYYY">
                                 {item.createdAt}
                               </Moment>
