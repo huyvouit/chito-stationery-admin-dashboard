@@ -47,7 +47,7 @@ const ProductContextProvider = ({ children }) => {
   const addProduct = async (newproduct) => {
     try {
       const response = await productApi.postAddProduct(newproduct);
-      console.log(response.data);
+
       if (response.data.success) {
         // dispatch({ type: ADD_PRODUCT, payload: response.data.product });
         return response.data;
@@ -62,7 +62,7 @@ const ProductContextProvider = ({ children }) => {
   const deleteProduct = async (id) => {
     try {
       const response = await productApi.deleteProduct(id);
-      console.log(response.data);
+
       // if (response.data.success)
       // dispatch({ type: DELETE_PRODUCT, payload: productId });
       return response.data;
@@ -83,7 +83,7 @@ const ProductContextProvider = ({ children }) => {
   const updateProduct = async (updatedProduct) => {
     try {
       const response = await productApi.patchUpdateProduct(updatedProduct);
-      console.log(response.data);
+
       if (response.data.success) {
         // dispatch({ type: UPDATE_PRODUCT, payload: response.data.product });
         return response.data;

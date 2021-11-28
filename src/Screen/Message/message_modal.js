@@ -8,7 +8,7 @@ export const MessageModal = () => {
     showMessageModal,
     setShowMessageModal,
   } = useContext(MessageContext);
-  console.log(message);
+
   const handleCloseModal = () => {
     setShowMessageModal(false);
   };

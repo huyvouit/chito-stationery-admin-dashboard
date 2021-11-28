@@ -83,7 +83,7 @@ const UpdateProductModal = ({ query }) => {
           detail,
         },
       };
-      console.log(body);
+
       const response = await updateProduct(body);
       if (response.success) {
         await getProducts(query);

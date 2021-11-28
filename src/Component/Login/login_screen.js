@@ -33,7 +33,6 @@ export default function LoginScreen() {
           pauseOnHover: true,
           draggable: true,
         });
-        console.log(authState);
       } else {
         toast.error(loginData.error, {
           position: "top-right",
@@ -64,7 +63,7 @@ export default function LoginScreen() {
     if (isEmpty(password)) {
       msg.password = "Please input password.";
     }
-    // console.log("sdsd");
+
     setValidationMsg(msg);
     if (Object.keys(msg).length > 0) return false;
     return true;

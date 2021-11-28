@@ -15,11 +15,9 @@ export const MessageScreen = (props) => {
   } = useContext(MessageContext);
 
   const [query, setQuery] = useState(queryString.parse(props.location.search));
-  console.log("query,", query);
 
   useEffect(() => {
     const params = Object.keys(query).length > 0 ? query : { page: 1 };
-    console.log("params", params);
     getAllMessage(params);
   }, [query]);
 
@@ -82,7 +80,9 @@ export const MessageScreen = (props) => {
                               </Moment>
                             </td>
                             <td className="col-3">{item.email}</td>
-                            <td className="col-2 ellipsis"><span className="set-height">{item.name}</span></td>
+                            <td className="col-2 ellipsis">
+                              <span className="set-height">{item.name}</span>
+                            </td>
                             <td className="text-limit">{item.message}</td>
                           </tr>
                         );
@@ -98,58 +98,6 @@ export const MessageScreen = (props) => {
           handleClick={handlePageClick}
           query={query}
         />
-
-        {/* <!-- Modal --> */}
-        {/* <div
-        className="modal fade "
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-lg modal-dialog-centered ">
-          <div className="modal-content rounded-25 ">
-            <div className="modal-body">
-              <div className="row mb-14">
-                <div className="col-6">
-                  <p className="modal-title mt-2 ">
-                    <strong className="title-content">Little Star</strong>
-                  </p>
-                  <p className="modal-title mt-2 ">
-                    <strong className="title-content">
-                      littlestarinthesky@gmail.com
-                    </strong>
-                  </p>
-                </div>
-                <div className="col-5 justify-content-center">
-                  <p className="modal-title mt-2">
-                    <strong className="title-content">Datre:</strong> 06/11/2021
-                  </p>
-                </div>
-                <div className="col-1 text-align-center mt-2">
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-              </div>
-              <div className="row mb-14">
-                <p className="modal-title mt-18">
-                  Like anything, chocolate is best enjoyed in moderation. If you
-                  choose chocolate wisely, it actually has some health benefits,
-                  but eating too much candy has negative effects on your health.
-                  Candies are mostly made from sugar which has to be boiled at a
-                  special temperature. Beside sugar, ingredients like
-                  flavorings, nuts, gelatin, egg whites, milk-based ingredients
-                  and butter are used for candy making.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       </div>
     );
   }

@@ -10,7 +10,7 @@ const QueryContextProvider = ({ children }) => {
   const handleQuery = (nameQuery) => {
     setQuery(nameQuery);
   };
-  console.log("query context: ", query);
+
   //Context data
   const QueryContextData = {
     query,
