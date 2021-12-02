@@ -141,8 +141,6 @@ const UpdateProductModal = ({ query }) => {
                   type="text"
                   name="image"
                   value={image}
-                  // onChange={onChangeNewProductForm}
-                  readOnly
                 />
                 <p style={{ color: "red" }}>{validationMsg["image"]}</p>
               </div>
@@ -194,8 +192,8 @@ const UpdateProductModal = ({ query }) => {
               onChange={onChangeNewProductForm}
             >
               <option value="washi tape">WASHI TAPE</option>
-              <option value="sticky">STICKER</option>
-              <option value="sticker note">STICKY NOTE</option>
+              <option value="sticker">STICKER</option>
+              <option value="sticky note">STICKY NOTE</option>
             </select>
           </div>
         </div>
