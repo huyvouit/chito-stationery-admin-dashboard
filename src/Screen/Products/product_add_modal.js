@@ -41,7 +41,10 @@ const AddProductModal = ({ query }) => {
     }
     if (isEmpty(price)) {
       msg.price = "Please input price.";
+    } else if (parseInt(price) < 0) {
+      msg.price = "Price must be higher 0";
     }
+
     if (isEmpty(description)) {
       msg.description = "Please input desctiption.";
     }

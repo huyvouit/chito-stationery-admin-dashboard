@@ -48,7 +48,10 @@ const UpdateProductModal = ({ query }) => {
     }
     if (isEmpty(price.$numberDecimal)) {
       msg.price = "Please input your price.";
+    } else if (price.$numberDecimal < 0) {
+      msg.price = "Price must be higher 0";
     }
+
     if (isEmpty(description)) {
       msg.description = "Please input your desctiption.";
     }
@@ -141,6 +144,7 @@ const UpdateProductModal = ({ query }) => {
                   type="text"
                   name="image"
                   value={image}
+                  onChange={onChangeNewProductForm}
                 />
                 <p style={{ color: "red" }}>{validationMsg["image"]}</p>
               </div>
