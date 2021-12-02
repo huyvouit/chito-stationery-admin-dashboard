@@ -188,8 +188,8 @@ const AddProductModal = ({ query }) => {
               onChange={onChangeNewProductForm}
             >
               <option value="washi tape">WASHI TAPE</option>
-              <option value="sticky">STICKER</option>
-              <option value="sticker note">STICKY NOTE</option>
+              <option value="sticker">STICKER</option>
+              <option value="sticky note">STICKY NOTE</option>
             </select>
           </div>
         </div>
