@@ -138,7 +138,7 @@ const UpdateProductModal = ({ query }) => {
             <div className="row">
               <div className="align-items-baseline">
                 <img className="admin-img mr-15" src={image} alt="ava" />
-
+                <div className="product-input-label mb-9 mt-18">IMAGE URL</div>
                 <input
                   className="input-common mb-18"
                   type="text"

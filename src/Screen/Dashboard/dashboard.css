@@ -46,10 +46,12 @@
 
 .text-sm {
     font-size: 12px;
+    text-align: end;
 }
 
 .mes-info {
     align-items: baseline;
+    margin-left: 0;
 }
 
 .right-col {
