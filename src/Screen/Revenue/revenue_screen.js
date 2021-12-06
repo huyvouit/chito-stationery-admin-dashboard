@@ -80,7 +80,7 @@ export const RevenueScreen = () => {
                     <tr>
                       <th scope="col">ID</th>
                       <th scope="col">Date</th>
-                      <th scope="col">User</th>
+                      <th scope="col">Email</th>
                       <th scope="col">Quantity</th>
                       <th scope="col">Total</th>
                     </tr>
