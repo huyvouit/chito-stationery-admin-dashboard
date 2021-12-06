@@ -101,7 +101,7 @@ export const RevenueScreen = () => {
                             {item.customerEmail ? (
                               <td>{item.customerEmail}</td>
                             ) : (
-                              <td>No</td>
+                              <td>Guest</td>
                             )}
                             <td>{item.productList.length}</td>
                             <td>
